@@ -1,6 +1,6 @@
 {
   "data": {
-    "url": "/data/test.csv"
+    "url": "bar.csv"
   },
   "mark": {
     "type": "bar"
@@ -10,7 +10,7 @@
   "encoding": {
     "x": {
       "field": "topo",
-      "title": "Topology",
+      "title": "test",
       "type": "nominal",
       "sort": "time",
       "axis": {

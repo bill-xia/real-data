@@ -1,0 +1,42 @@
+data:
+  url: test.csv
+mark:
+  type: bar
+  #strokeWidth: 1
+  #stroke: "#000000"
+  #strokeOpacity: 0.2
+width: 500
+height: 300
+encoding:
+  x: 
+    field: topo
+    title: Topology
+    type: nominal
+    sort: time
+    axis:
+      labelFontSize: 13
+      labelAngle: 0
+      titleFontSize: 16
+  y: 
+    field: time
+    title: Congerge Time
+    stack: false
+    scale:
+      type: log
+      domain: [5,10000]
+      clamp: true
+    axis:
+      values: [1,10,100,1000,10000]
+      labelFontSize: 13
+      titleFontSize: 16
+  xOffset:
+    field: runtime
+    sort: [Default, REAL, Batfish]
+  color:
+    field: iter
+    scale:
+      scheme: pastel1
+    legend:
+      title: "Runtime"
+      labelFontSize: 13
+      titleFontSize: 16
