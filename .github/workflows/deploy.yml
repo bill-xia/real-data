@@ -2,7 +2,7 @@ name: Deploy Charts
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "test" ]
 
 permissions:
   contents: write
@@ -22,9 +22,13 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Build site
+        run: python generate_site.py
+
+      - name: Copy csv files
         run: |
-          python generate_site.py
-          find data -name "*.csv" -exec cp --parents {} build/ \;
+          cd data
+          find . -name "*.csv"
+          find . -name "*.csv" -exec cp --parents {} ../build/charts \;
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

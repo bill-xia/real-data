@@ -4,7 +4,8 @@ all: server
 
 server:
 	python3 generate_site.py
-	find data -name "*.csv" -exec cp --parents {} build/ \;
+	cd data; find . -name "*.csv"
+	cd data; find . -name "*.csv" -exec cp --parents {} ../build/charts \;
 	python3 -m http.server -d . 26919
 
 clean:
