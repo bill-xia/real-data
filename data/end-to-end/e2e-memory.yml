@@ -1,0 +1,38 @@
+data:
+  url: end-to-end.csv
+title: "End-to-End memory (data to be filled)"
+mark: bar
+width: 500
+height: 300
+encoding: 
+  x: 
+    field: topo
+    title: Topology
+    type: nominal
+    sort: time
+    axis:
+      labelFontSize: 13
+      labelAngle: 0
+      titleFontSize: 16
+  y:
+    field: memory
+    title: Memory Usage
+    type: quantitative
+    scale:
+      clamp: true
+      domain: [0, 200]
+    axis:
+      labelFontSize: 13
+      titleFontSize: 16
+  xOffset:
+    field: runtime
+    sort: [Default-frr, REAL-frr, Batfish]
+  color:
+    field: iter
+    sort: [Default-frr, REAL-frr, REAL-I-frr, Batfish]
+    scale:
+      scheme: pastel1
+    legend:
+      title: "Runtime"
+      labelFontSize: 13
+      titleFontSize: 16

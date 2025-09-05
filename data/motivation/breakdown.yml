@@ -1,0 +1,40 @@
+data:
+  url: breakdown.csv
+mark: bar
+width: 500
+height: 300
+title: "Time breakdown (SIGCOMM25 version data)"
+encoding:
+  x: 
+    field: topo
+    title: Topology
+    type: nominal
+    sort: time
+    axis:
+      labelFontSize: 13
+      labelAngle: 0
+      titleFontSize: 16
+  y:
+    field: time
+    title: Time(s)
+    type: quantitative
+    scale:
+      type: log
+      domain: [5,10000]
+      clamp: true
+    axis:
+      values: [1,10,100,1000,10000]
+      labelFontSize: 13
+      titleFontSize: 16
+  xOffset:
+    field: stage
+    sort: [docker-up, network-up, converge]
+  color:
+    field: stage
+    sort: [docker-up, network-up, converge]
+    scale:
+      scheme: pastel1
+    legend:
+      title: "Runtime"
+      labelFontSize: 13
+      titleFontSize: 16
