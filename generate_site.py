@@ -3,7 +3,7 @@ import pathlib
 import json
 import yaml  # pip install pyyaml
 
-def chart_html(spec_path: str) -> str:
+def chart_html(spec_path: str, rel_root: str = '.') -> str:
     return f"""<!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +17,7 @@ def chart_html(spec_path: str) -> str:
   <h2>{spec_path}</h2>
   <div id="vis"></div>
   <script type="text/javascript">
-    vegaEmbed('#vis', "/spec/{spec_path}.json");
+    vegaEmbed('#vis', "./{rel_root}/{spec_path}.json");
   </script>
 </body>
 </html>"""
@@ -49,7 +49,7 @@ def render_tree(node, prefix="charts", path=""):
     return html
 
 def main():
-    base_dir = "spec"
+    base_dir = "data"
     build_dir = pathlib.Path("build/charts")
     build_dir.mkdir(parents=True, exist_ok=True)
 
@@ -63,12 +63,14 @@ def main():
             rel_path = os.path.relpath(root, base_dir)
             rel_dir = "" if rel_path == "." else rel_path
             name, ext = os.path.splitext(f)
-            json_out = pathlib.Path("build/spec") / rel_dir / f"{name}.json"
+            json_out = pathlib.Path("build/charts") / rel_dir / f"{name}.json"
 
             html_path = build_dir / rel_dir / f"{name}.html"
             html_path.parent.mkdir(parents=True, exist_ok=True)
 
             spec_rel = os.path.join(rel_dir, name).replace("\\", "/")
+            print(spec_rel)
+            root_rel = '/'.join(['..'] * (len(spec_rel.split(os.sep)) - 1))
             spec_src = pathlib.Path(root) / f
 
             if ext in [".yaml", ".yml"]:
@@ -84,7 +86,7 @@ def main():
                 json.dump(spec, fp, ensure_ascii=False, indent=2)
 
             # 写 html
-            html_path.write_text(chart_html(spec_rel), encoding="utf-8")
+            html_path.write_text(chart_html(spec_rel, root_rel), encoding="utf-8")
 
     # 索引页
     tree = build_tree(base_dir)

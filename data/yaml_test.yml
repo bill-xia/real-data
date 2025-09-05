@@ -1,5 +1,5 @@
 data:
-  url: /data/test.csv
+  url: test.csv
 mark:
   type: bar
   #strokeWidth: 1

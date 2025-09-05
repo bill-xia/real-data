@@ -24,7 +24,7 @@ jobs:
       - name: Build site
         run: |
           python generate_site.py
-          cp -r data build/
+          find data -name "*.csv" -exec cp --parents {} build/ \;
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
