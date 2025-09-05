@@ -58,8 +58,6 @@ def main():
             if not f.endswith((".json", ".yaml", ".yml")):
                 continue
 
-            print(f)
-
             rel_path = os.path.relpath(root, base_dir)
             rel_dir = "" if rel_path == "." else rel_path
             name, ext = os.path.splitext(f)
