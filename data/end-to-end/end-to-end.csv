@@ -11,10 +11,10 @@ Default-frr,Default-frr,FT44,0,0
 Default-frr,Default-frr,FT48,0,0
 REAL-frr,REAL-frr,TZ1,0,0
 REAL-frr,REAL-frr,TZ2,0,0
-REAL-frr,REAL-frr,FT20,0,0
-REAL-frr,REAL-frr,FT24,0,0
-REAL-frr,REAL-frr,FT28,0,0
-REAL-frr,REAL-frr,FT32,0,0
+REAL-frr,REAL-frr,FT20,18.680,0
+REAL-frr,REAL-frr,FT24,29.042,0
+REAL-frr,REAL-frr,FT28,50.377,0
+REAL-frr,REAL-frr,FT32,94.259,0
 REAL-frr,REAL-frr,FT36,0,0
 REAL-frr,REAL-frr,FT40,0,0
 REAL-frr,REAL-frr,FT44,0,0
@@ -31,9 +31,9 @@ REAL-frr,REAL-I-frr,FT44,0,0
 REAL-frr,REAL-I-frr,FT48,0,0
 Batfish,Batfish,TZ1,0,0
 Batfish,Batfish,TZ2,0,0
-Batfish,Batfish,FT20,0,0
-Batfish,Batfish,FT24,0,0
-Batfish,Batfish,FT28,0,0
+Batfish,Batfish,FT20,61.587,70.147
+Batfish,Batfish,FT24,102.437,129.554
+Batfish,Batfish,FT28,204.061,188.051
 Batfish,Batfish,FT32,0,0
 Batfish,Batfish,FT36,0,0
 Batfish,Batfish,FT40,0,0
